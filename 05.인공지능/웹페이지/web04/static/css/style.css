@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+
+#box b {
+    color:rgb(31, 191, 202);
+}
+
+* {
+    font-family: "Gowun Dodum", sans-serif;
+}
+
+#box .modal-body{
+    font-size: 20px;
+    color: gray;
+}
+
+table.dataframe th, td {
+    text-align: center;   /* 가운데 정렬 */
+    vertical-align: middle; /* 세로도 가운데 맞춤 */
+}

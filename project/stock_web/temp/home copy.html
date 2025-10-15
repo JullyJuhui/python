@@ -1,0 +1,26 @@
+<div class="my-3">
+    <div class="row justify-content-end">
+        <div class="col-7 col-md-5 mb-3">
+                <div class="input-group">
+                    <input placeholder="주식종목" class="form-control" name="stock_name">
+                    <button id="search" class="btn btn-outline-info px-3">검색</button>
+                </div>
+        </div>
+        
+        <div id="test"></div>
+    </div>
+</div>
+<script>
+    getData();
+
+    function getData(){
+        $.ajax({
+            type:"get",
+            url:"/today",
+            success:function(data){
+                console.log(data);
+                $("#test").html(data);
+            }
+        })
+    }
+</script>

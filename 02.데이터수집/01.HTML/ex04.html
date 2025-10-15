@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연습04</title>
+    <style>
+        * {
+            font-family: "Gowun Batang", serif;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        body {
+            margin: 0px auto;
+            width: 500px;
+        }
+
+        span {
+            display: inline-block;
+            width: 100px;
+            background-color: rgb(25, 214, 85);
+            color: white;
+            padding: 5px; /*안쪽 여백*/
+            margin: 5px; /*바깥 여백*/
+            border-radius: 5px;
+            text-align: right;
+        }
+
+        input[type='text'], [type='password'], select {
+            border: 1px solid green;
+            padding: 5px;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        input[type='submit'], [type='reset']{
+            cursor: pointer;
+            border: 2px solid rgb(25, 214, 85);
+            color: rgb(25, 214, 85);
+            padding: 5px 20px;
+            border-radius: 5px;
+        }
+
+        form{
+            border: 3px dotted green;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        input[type='text']:focus{
+            background-color: pink;
+        }
+
+        .buttons {
+            text-align: center;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>회원가입</h1>
+    <form>
+        <div>
+            <span>아이디 | </span><input type="text">
+        </div>
+        <div>
+            <span>비밀번호 | </span><input type="password">
+        </div>
+        <div>
+            <span>직업 | </span>
+            <select>
+                <option>프로그래머</option>
+                <option>의사</option>
+                <option selected>변호사</option>
+                <option>기타</option>
+            </select>
+        </div>
+        <div>
+            <span>성별 | </span>
+            <input type="radio" name="gender" checked>남
+            <input type="radio" name="gender">여
+        </div>
+        <div>
+            <span>취미 | </span>
+            <input type="checkbox">골프
+            <input type="checkbox">게임
+            <input type="checkbox" checked>독서
+            <input type="checkbox">영화감상
+        </div>
+        <div class='buttons'>
+            <input type="submit" value="회원가입">
+            <input type="reset" value="가입취소">
+        </div>
+    </form>
+</body>
+
+</html>
+
+<!-- shift + alt + f: 자동정렬-->

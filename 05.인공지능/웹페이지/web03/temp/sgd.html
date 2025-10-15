@@ -1,0 +1,61 @@
+<div class="my-5">
+    <h1 class="text-center mb-5">{{title}}</h1>
+    <div class="row justify-content-center">
+        <form class="col-12 col-md-6 mb-3" name="frm">
+            <div class="input-group">
+                <input placeholder="공부시간" class="form-control" name="hour">
+                <button class="btn btn-info">점수예측</button>
+            </div>
+        </form>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-6">
+            <button class="btn btn-info w-100">그래프출력</button>
+            <img src='http://placehold.co/500x300' width="100%">
+        </div>
+    </div>
+</div>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+    $(frm).on("submit", function(e){
+        e.preventDefault();
+        const hour = $(frm.hour).val();
+        if(hour==''){
+            $("#box").modal('show')
+            $("#box .modal-body").html("공부시간을 입력하세요!")
+            return;
+        }
+        $.ajax({
+            type: "get",
+            url: "/linear/sgd/predict",
+            data: {hour},
+            success:function(data){
+              str = `${hour}시간 공부에 대한 예측점수는 <b>${data}점</b>입니다.`;
+              $("#box").modal('show')
+              $("#box .modal-body").html(str)
+            }
+        })
+    })
+</script>

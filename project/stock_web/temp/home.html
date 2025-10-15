@@ -1,0 +1,72 @@
+<div class="row my-3 justify-content-center">
+    <div class="col-4 col-md-4 col-lg-3">
+        <div class="card">
+            <div class="card-header">
+                <h4>코스피(KOSPI)</h4>
+            </div>
+            <div class="card-body">
+                <h5 id="content1"></h5>
+                <h5 id="figure1"></h5>
+                <img id="graph1" width="100%">
+            </div>
+        </div>
+    </div>
+    <div class="col-4 col-md-4 col-lg-3">
+        <div class="card">
+            <div class="card-header">
+                <h4>코스닥(KOSDAQ)</h4>
+            </div>
+            <div class="card-body">
+                <h5 id="content2"></h5>
+                <h5 id="figure2"></h5>
+                <img id="graph2" width="100%">
+            </div>
+        </div>
+    </div>
+    <div class="col-4 col-md-4 col-lg-3">
+        <div class="card">
+            <div class="card-header">
+                <h4>나스닥(NASDAQ)</h4>
+            </div>
+            <div class="card-body">
+                <h5 id="content3"></h5>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    getData();
+
+    function getData() {
+        $.ajax({
+            type: "get",
+            url: "/kinfo1",
+            success: function (data) {
+                console.log(data.price);
+                $("#content1").html(data.price);
+                $("#figure1").html(data.num);
+                $("#graph1").attr("src", data.graph)
+            }
+        })
+        $.ajax({
+            type: "get",
+            url: "/kinfo2",
+            success: function (data) {
+                console.log(data.price);
+                $("#content2").html(data.price);
+                $("#figure2").html(data.num);
+                $("#graph2").attr("src", data.graph)
+            }
+        })
+        $.ajax({
+            type: "get",
+            url: "/ninfo",
+            success: function (data) {
+                console.log(data.price);
+                $("#content3").html(data.price);
+            }
+        })
+        
+    }
+</script>
