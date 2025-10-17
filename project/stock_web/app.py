@@ -75,13 +75,14 @@ def get_ninfo():
     soup = BeautifulSoup(res.text, 'lxml')
 
     price = soup.find('span', attrs={'class':re.compile('spt_con')}).find('strong').getText()
+    rows = soup.find_all('span', attrs={'class':'n_ch'})
 
-    return price
+    return price, rows
 
 #코스닥 정보 전달
 @app.route('/ninfo')
 def ninfo():
-    price = get_ninfo()
+    price, rows = get_ninfo()
     data = {'title':'NASDAQ', 'price':price}
 
     return data
